@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 #red = [2]
 #(blue-red)/green
 
-def res_out_raw_in(imags):
+def res_out(imags):
     np.seterr(divide='ignore', invalid='ignore')
     output_matrix = ((imags[0].astype('float32')-imags[2].astype('float32'))/imags[1].astype('float32'))
     output_matrix = output_matrix[0,:,:]
@@ -22,11 +22,13 @@ def mci_out(imags):
     output_matrix = (imags[4].astype('float32')-imags[3].astype('float32')*(imags[4].astype('float32')-imags[3].astype('float32'))/(imags[5].astype('float32')-imags[3].astype('float32'))*(imags[5].astype('float32')-imags[3].astype('float32'))
     output_matrix = output_matrix[0,:,:]
     
-    plt.imshow(output_matrix, aspect='auto', cmap='rainbow')
+    plt.imshow(output_matrix, aspect='auto')
     cbar = plt.colorbar()
     cbar.set_label('Chl-a mg/m³')
     plt.show()
 
 
 
-#from ml_visualization import res_out_raw_in
+#from ml_visualization import res_out
+#from ml_visualization import mci_out
+
