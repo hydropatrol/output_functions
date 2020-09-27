@@ -17,9 +17,9 @@ def res_out(imags):
     plt.show()
 
 
-def mci_out(imags):
+def mci_out(S_imags_rspld):    
     np.seterr(divide='ignore', invalid='ignore')
-    output_matrix = (imags[4].astype('float32')-imags[3].astype('float32')*(imags[4].astype('float32')-imags[3].astype('float32'))/(imags[5].astype('float32')-imags[3].astype('float32'))*(imags[5].astype('float32')-imags[3].astype('float32'))
+    output_matrix = (S_imags_rspld[4].astype('float32')-S_imags_rspld[3].astype('float32')*((705-665)/(740/665))*(S_imags_rspld[5].astype('float32')-S_imags_rspld[3].astype('float32'))
     output_matrix = output_matrix[0,:,:]
     
     plt.imshow(output_matrix, aspect='auto')
